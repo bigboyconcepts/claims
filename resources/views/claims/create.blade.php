@@ -12,7 +12,7 @@
             <fieldset>
             <legend>Create New Claim</legend>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="customerName">CustomerName</label>  
+                <label class="col-md-4 control-label" for="customerName">Customer Name</label>
                 <div class="col-md-4">
                     <input id="customerName" name="customerName" type="text" placeholder="Customer Name" class="form-control input-md" required="">
                 </div>

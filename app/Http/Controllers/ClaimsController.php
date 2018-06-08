@@ -45,10 +45,10 @@ class ClaimsController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'customer_name'     => 'required|string|max:60',
-            'opportunity_id'    => 'required|integet|max:25',
+            'customerName'      => 'required|string|max:60',
+            'opportunityId'     => 'required|integet|max:25',
             'country'           => 'required|string|max:60',
-            'activity_date'     => 'required|after:today',
+            'activityDate'      => 'required|after:today',
             'value'             => 'required|numeric'
         ]);
 
