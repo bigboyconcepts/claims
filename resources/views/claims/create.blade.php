@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}
+        @endforeach
+    </ul>
     <div class="container">
         <form method="POST" action="{{ url('claims') }}" class="form-horizontal">
             @csrf

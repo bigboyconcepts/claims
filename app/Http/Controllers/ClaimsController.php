@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -43,6 +44,21 @@ class ClaimsController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = Validator::make($request->all(), [
+            'customer_name'     => 'required|string|max:60',
+            'opportunity_id'    => 'required|integet|max:25',
+            'country'           => 'required|string|max:60',
+            'activity_date'     => 'required|after:today',
+            'value'             => 'required|numeric'
+        ]);
+
+        if ($validate->fails())
+        {
+            return redirect('claims/create')
+                ->withErrors($validate)
+                ->withInput();
+        }
+
         $claim = new Claim;
 
         $claim->customer_name   = $request->input('customerName');
